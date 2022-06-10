@@ -7,8 +7,10 @@ import android.widget.Button;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import tech.stargeneration.gtc.R;
+import tech.stargeneration.gtc.data.QuizIonic;
 import tech.stargeneration.gtc.models.Compound;
 import tech.stargeneration.gtc.data.CompoundIonic;
+import tech.stargeneration.gtc.models.Quiz;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -21,12 +23,13 @@ public class TakeQuiz extends AppCompatActivity {
 
     // For quiz
     private Random random;
-    private CompoundIonic ionic;
-    private ArrayList<Compound> quiz;
+    private QuizIonic quizIonic;
+    private ArrayList<Quiz> quiz;
     private AlertDialog.Builder builder;
+    private Quiz quizToShow;
+    private ArrayList<String> formulasToShow;
 
     // For UI
-    private TextView timer;
     private TextView compoundFormula;
     private Button choice1;
     private Button choice2;
@@ -43,11 +46,10 @@ public class TakeQuiz extends AppCompatActivity {
         result = extras.getInt("QUIZ_TYPE");
 
         random = new Random();
-        ionic = new CompoundIonic();
-        quiz = result == 0 ? ionic.getIonicCompounds() : new ArrayList<>();
+        quizIonic = new QuizIonic();
+        quiz = result == 0 ? quizIonic.getIonicQuiz() : new ArrayList<>();
         builder = new AlertDialog.Builder(this);
 
-        timer = findViewById(R.id.timer);
         compoundFormula = findViewById(R.id.compoundFormula);
         choice1 = findViewById(R.id.choice1);
         choice2 = findViewById(R.id.choice2);
@@ -73,19 +75,14 @@ public class TakeQuiz extends AppCompatActivity {
 
     private void showNextQuestion() {
         int randomQuiz = random.nextInt(quiz.size());
-        Compound quizToShow = quiz.get(randomQuiz);
-        ArrayList<String> formulasToShow = ionic.mixFormula(quizToShow.getFormula());
+        quizToShow = quiz.get(randomQuiz);
+        formulasToShow = quizToShow.getCompoundChoices();
 
-        compoundFormula.setText(quizToShow.getName());
+        compoundFormula.setText(quizToShow.getCompoundToGuess().getName());
         for (int i = 0; i < formulasToShow.size(); i++) {
             choices[i].setText(formulasToShow.get(i));
         }
 
         quiz.remove(quizToShow);
-    }
-
-    private void checkAnswer(View view) {
-        Button buttonPressed = findViewById(view.getId());
-        String buttonPressedText = String.valueOf(buttonPressed.getText());
     }
 }

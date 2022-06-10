@@ -1,4 +1,6 @@
-package tech.stargeneration.gtc.models;
+package tech.stargeneration.gtc.data;
+
+import tech.stargeneration.gtc.models.Compound;
 
 import java.util.ArrayList;
 import java.util.Collection;

@@ -29,27 +29,27 @@ public class QuizIonic {
     );
     Quiz quiz5 = new Quiz(
             ionicCompounds.get(4),
-            ionic.mixFormula(ionicCompounds.get(5).getFormula())
+            ionic.mixFormula(ionicCompounds.get(4).getFormula())
     );
     Quiz quiz6 = new Quiz(
+            ionicCompounds.get(5),
+            ionic.mixFormula(ionicCompounds.get(5).getFormula())
+    );
+    Quiz quiz7 = new Quiz(
             ionicCompounds.get(6),
             ionic.mixFormula(ionicCompounds.get(6).getFormula())
     );
-    Quiz quiz7 = new Quiz(
+    Quiz quiz8 = new Quiz(
             ionicCompounds.get(7),
             ionic.mixFormula(ionicCompounds.get(7).getFormula())
     );
-    Quiz quiz8 = new Quiz(
+    Quiz quiz9 = new Quiz(
             ionicCompounds.get(8),
             ionic.mixFormula(ionicCompounds.get(8).getFormula())
     );
-    Quiz quiz9 = new Quiz(
+    Quiz quiz10 = new Quiz(
             ionicCompounds.get(9),
             ionic.mixFormula(ionicCompounds.get(9).getFormula())
-    );
-    Quiz quiz10 = new Quiz(
-            ionicCompounds.get(10),
-            ionic.mixFormula(ionicCompounds.get(10).getFormula())
     );
 
     public ArrayList<Quiz> getIonicQuiz() {
