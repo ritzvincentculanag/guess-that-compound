@@ -7,4 +7,11 @@
   <string name="menu_subtitle">Can you guess all the compounds?</string>
   <string name="menu_btn_start">Start</string>
   <string name="menu_btn_learn">Learn</string>
+
+  <!-- Choose compounds -->
+  <string name="choose_title">Select Your</string>
+  <string name="choose_title_highlight">COMPOUNDS!</string>
+  <string name="choose_btn_ionic">Ionic Compounds</string>
+  <string name="choose_btn_covalent">Covalent Compounds</string>
+  <string name="choose_total_compounds">Total items: 0</string>
 </resources>
