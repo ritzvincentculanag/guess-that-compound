@@ -1,12 +1,14 @@
 package tech.stargeneration.gtc.screens;
 
+import android.app.AlertDialog;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import tech.stargeneration.gtc.R;
 import tech.stargeneration.gtc.models.Compound;
-import tech.stargeneration.gtc.models.CompoundIonic;
+import tech.stargeneration.gtc.data.CompoundIonic;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -21,6 +23,7 @@ public class TakeQuiz extends AppCompatActivity {
     private Random random;
     private CompoundIonic ionic;
     private ArrayList<Compound> quiz;
+    private AlertDialog.Builder builder;
 
     // For UI
     private TextView timer;
@@ -42,6 +45,7 @@ public class TakeQuiz extends AppCompatActivity {
         random = new Random();
         ionic = new CompoundIonic();
         quiz = result == 0 ? ionic.getIonicCompounds() : new ArrayList<>();
+        builder = new AlertDialog.Builder(this);
 
         timer = findViewById(R.id.timer);
         compoundFormula = findViewById(R.id.compoundFormula);
@@ -59,6 +63,14 @@ public class TakeQuiz extends AppCompatActivity {
         showNextQuestion();
     }
 
+    private void showAlertDialog(String title, String message) {
+        builder.setTitle(title);
+        builder.setMessage(message);
+        builder.setPositiveButton("Nice!", (dialogInterface, i) -> showNextQuestion());
+        builder.setCancelable(false);
+        builder.show();
+    }
+
     private void showNextQuestion() {
         int randomQuiz = random.nextInt(quiz.size());
         Compound quizToShow = quiz.get(randomQuiz);
@@ -68,5 +80,12 @@ public class TakeQuiz extends AppCompatActivity {
         for (int i = 0; i < formulasToShow.size(); i++) {
             choices[i].setText(formulasToShow.get(i));
         }
+
+        quiz.remove(quizToShow);
+    }
+
+    private void checkAnswer(View view) {
+        Button buttonPressed = findViewById(view.getId());
+        String buttonPressedText = String.valueOf(buttonPressed.getText());
     }
 }
