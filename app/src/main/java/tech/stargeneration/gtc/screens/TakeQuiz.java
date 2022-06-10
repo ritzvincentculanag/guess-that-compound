@@ -1,6 +1,7 @@
 package tech.stargeneration.gtc.screens;
 
 import android.app.AlertDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -28,6 +29,7 @@ public class TakeQuiz extends AppCompatActivity {
     private AlertDialog.Builder builder;
     private Quiz quizToShow;
     private ArrayList<String> formulasToShow;
+    private int score = 0;
 
     // For UI
     private TextView compoundFormula;
@@ -67,7 +69,7 @@ public class TakeQuiz extends AppCompatActivity {
     }
 
     private void initButtons() {
-        for (Button button: choices) {
+        for (Button button : choices) {
             button.setOnClickListener(this::checkAnswer);
         }
     }
@@ -95,16 +97,21 @@ public class TakeQuiz extends AppCompatActivity {
 
     private void checkAnswer(View view) {
         if (quiz.size() == 0) {
-
-        }
-        Button buttonPressed = findViewById(view.getId());
-        String buttonPressedText = buttonPressed.getText().toString();
-        String correctAnswer = quizToShow.getCompoundToGuess().getFormula();
-
-        if (buttonPressedText.equals(correctAnswer)) {
-            showAlertDialog("Result", "Correct!");
+            Intent showScore = new Intent(this, ShowScore.class);
+            showScore.putExtra("QUIZ_SCORE", score);
+            startActivity(showScore);
         } else {
-            showAlertDialog("Result", "Better luck next time!");
+            Button buttonPressed = findViewById(view.getId());
+            String buttonPressedText = buttonPressed.getText().toString();
+            String correctAnswer = quizToShow.getCompoundToGuess().getFormula();
+
+            if (buttonPressedText.equals(correctAnswer)) {
+                score += 1;
+                showAlertDialog("Result", "Correct!");
+            } else {
+                showAlertDialog("Result", "Better luck next time!");
+            }
         }
+
     }
 }
