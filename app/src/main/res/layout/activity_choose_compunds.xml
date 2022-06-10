@@ -7,4 +7,98 @@
   android:layout_height="match_parent"
   tools:context=".screens.ChooseCompunds">
 
+  <TextView
+    android:text="@string/choose_title"
+    android:layout_width="wrap_content"
+    android:textSize="40sp"
+    android:textColor="@color/black_500"
+    android:layout_height="50dp"
+    android:id="@+id/textView"
+    app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent" android:layout_marginTop="44dp" app:fontFamily="@font/poppins_bold"
+    app:layout_constraintHorizontal_bias="0.497"/>
+  <TextView
+    android:text="@string/choose_title_highlight"
+    android:layout_width="wrap_content"
+    android:textSize="40sp"
+    android:textColor="@color/yellow_700"
+    android:layout_height="50dp"
+    android:id="@+id/textVie"
+    android:shadowColor="@color/black_300"
+    android:shadowDx="1"
+    android:shadowDy="1"
+    android:shadowRadius="2"
+    app:fontFamily="@font/poppins_bold"
+    app:layout_constraintStart_toStartOf="@+id/textView"
+    app:layout_constraintEnd_toEndOf="@+id/textView" app:layout_constraintHorizontal_bias="0.509"
+    app:layout_constraintTop_toBottomOf="@+id/textView"/>
+
+  <RelativeLayout
+    android:id="@+id/btnIonic"
+    android:background="@drawable/button_default"
+    android:layout_width="match_parent"
+    android:layout_height="200dp"
+    android:layout_marginTop="88dp"
+    android:layout_marginStart="24dp"
+    android:layout_marginEnd="24dp"
+    android:focusable="true"
+    android:clickable="true"
+    app:layout_constraintTop_toBottomOf="@+id/textVie"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintHorizontal_bias="0.0">
+    <TextView
+      android:text="@string/choose_btn_ionic"
+      android:textSize="28sp"
+      android:textColor="@color/black_500"
+      android:layout_height="wrap_content"
+      android:layout_width="match_parent"
+      android:paddingStart="20dp"
+      android:paddingEnd="0dp"
+      android:layout_marginTop="100dp"
+      app:lineHeight="40sp"
+      app:fontFamily="@font/poppins_bold"/>
+    <TextView
+      android:text="@string/choose_total_compounds"
+      android:textColor="@color/black_300"
+      android:layout_height="wrap_content"
+      android:layout_width="match_parent"
+      android:layout_marginTop="150dp"
+      android:paddingStart="20dp"
+      android:paddingEnd="0dp"/>
+  </RelativeLayout>
+
+  <RelativeLayout
+    android:id="@+id/Covalent"
+    android:background="@drawable/button_default"
+    android:layout_width="match_parent"
+    android:layout_height="200dp"
+    android:layout_marginStart="24dp"
+    android:layout_marginEnd="24dp"
+    android:focusable="true"
+    android:clickable="true"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintHorizontal_bias="1.0" app:layout_constraintTop_toBottomOf="@+id/btnIonic"
+    android:layout_marginTop="24dp">
+    <TextView
+      android:text="@string/choose_btn_covalent"
+      android:textSize="28sp"
+      android:textColor="@color/black_500"
+      android:layout_height="wrap_content"
+      android:layout_width="match_parent"
+      android:paddingStart="20dp"
+      android:paddingEnd="0dp"
+      android:layout_marginTop="100dp"
+      app:lineHeight="40sp"
+      app:fontFamily="@font/poppins_bold"/>
+    <TextView
+      android:text="@string/choose_total_compounds"
+      android:textColor="@color/black_300"
+      android:layout_height="wrap_content"
+      android:layout_width="match_parent"
+      android:layout_marginTop="150dp"
+      android:paddingStart="20dp"
+      android:paddingEnd="0dp"/>
+  </RelativeLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
