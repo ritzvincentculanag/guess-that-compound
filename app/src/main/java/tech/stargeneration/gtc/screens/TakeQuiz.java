@@ -62,7 +62,14 @@ public class TakeQuiz extends AppCompatActivity {
                 choice4,
         };
 
+        initButtons();
         showNextQuestion();
+    }
+
+    private void initButtons() {
+        for (Button button: choices) {
+            button.setOnClickListener(this::checkAnswer);
+        }
     }
 
     private void showAlertDialog(String title, String message) {
@@ -84,5 +91,20 @@ public class TakeQuiz extends AppCompatActivity {
         }
 
         quiz.remove(quizToShow);
+    }
+
+    private void checkAnswer(View view) {
+        if (quiz.size() == 0) {
+
+        }
+        Button buttonPressed = findViewById(view.getId());
+        String buttonPressedText = buttonPressed.getText().toString();
+        String correctAnswer = quizToShow.getCompoundToGuess().getFormula();
+
+        if (buttonPressedText.equals(correctAnswer)) {
+            showAlertDialog("Result", "Correct!");
+        } else {
+            showAlertDialog("Result", "Better luck next time!");
+        }
     }
 }
