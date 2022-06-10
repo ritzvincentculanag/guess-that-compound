@@ -1,10 +1,15 @@
 package tech.stargeneration.gtc.screens;
 
 import android.content.Intent;
+import android.util.Log;
 import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import tech.stargeneration.gtc.R;
+import tech.stargeneration.gtc.models.Compound;
+import tech.stargeneration.gtc.models.CompoundIonic;
+
+import java.util.ArrayList;
 
 public class MainMenu extends AppCompatActivity {
 
