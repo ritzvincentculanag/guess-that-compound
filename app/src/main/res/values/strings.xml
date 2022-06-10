@@ -1,0 +1,10 @@
+<resources>
+  <string name="app_name">java-gtc</string>
+
+  <!-- User defined strings -->
+  <!-- Main menu -->
+  <string name="menu_title">Guess That Compound!</string>
+  <string name="menu_subtitle">Can you guess all the compounds?</string>
+  <string name="menu_btn_start">Start</string>
+  <string name="menu_btn_learn">Learn</string>
+</resources>
