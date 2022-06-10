@@ -6,12 +6,98 @@
   android:layout_width="match_parent"
   android:layout_height="match_parent"
   tools:context=".screens.TakeQuiz">
-
   <TextView
-    android:text="TextView"
+    android:text="What is the name of the compound?"
+    android:textSize="20sp"
+    android:gravity="center"
+    android:textColor="@color/black_300"
+    app:fontFamily="@font/poppins"
+    android:layout_width="200dp"
+    android:layout_height="wrap_content" android:id="@+id/textView4"
+    android:layout_marginEnd="178dp" app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="176dp"
+    app:layout_constraintHorizontal_bias="0.498" app:layout_constraintTop_toBottomOf="@+id/textView6"
+    android:layout_marginTop="8dp"/>
+  <TextView
+    android:text="NaCl"
+    app:fontFamily="@font/poppins_bold"
+    android:textColor="@color/black_500"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content" android:id="@+id/test"
-    android:layout_marginEnd="228dp" app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="125dp"
-    app:layout_constraintTop_toTopOf="parent" android:layout_marginTop="323dp"/>
+    android:layout_height="wrap_content" android:id="@+id/textView5"
+    android:textAppearance="@style/TextAppearance.AppCompat.Display3"
+    app:layout_constraintTop_toBottomOf="@+id/textView4" app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent" android:layout_marginTop="48dp"/>
+  <Button
+    android:text="Sodium Chloride"
+    android:layout_width="0dp"
+    android:layout_height="70dp" android:id="@+id/button"
+
+    app:backgroundTint="@color/yellow_500"
+    android:textColor="@color/black_500"
+    android:textSize="18sp"
+    app:textAllCaps="false"
+    app:strokeColor="@color/black_500"
+    app:strokeWidth="1dp"
+    app:fontFamily="@font/poppins_bold"
+
+    app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/textView5" android:layout_marginTop="56dp"
+    app:layout_constraintHorizontal_bias="0.0" android:layout_marginStart="32dp" android:layout_marginEnd="32dp"/>
+  <Button
+    android:text="Sodium Chloride"
+    android:layout_width="0dp"
+
+    app:backgroundTint="@color/yellow_500"
+    android:textColor="@color/black_500"
+    android:textSize="18sp"
+    app:textAllCaps="false"
+    app:strokeColor="@color/black_500"
+    app:strokeWidth="1dp"
+    app:fontFamily="@font/poppins_bold"
+
+    android:layout_height="70dp" android:id="@+id/button2"
+    app:layout_constraintStart_toStartOf="@+id/button" app:layout_constraintEnd_toEndOf="@+id/button"
+    app:layout_constraintHorizontal_bias="0.0"
+    app:layout_constraintTop_toBottomOf="@+id/button"/>
+  <Button
+    android:text="Sodium Chloride"
+    android:layout_width="0dp"
+
+    app:backgroundTint="@color/yellow_500"
+    android:textColor="@color/black_500"
+    android:textSize="18sp"
+    app:textAllCaps="false"
+    app:strokeColor="@color/black_500"
+    app:strokeWidth="1dp"
+    app:fontFamily="@font/poppins_bold"
+
+    android:layout_height="70dp" android:id="@+id/button3"
+    app:layout_constraintStart_toStartOf="@+id/button2" app:layout_constraintEnd_toEndOf="@+id/button2"
+    app:layout_constraintHorizontal_bias="0.0"
+    app:layout_constraintTop_toBottomOf="@+id/button2"/>
+  <Button
+    android:text="Sodium Chloride"
+    android:layout_width="0dp"
+
+    app:backgroundTint="@color/yellow_500"
+    android:textColor="@color/black_500"
+    android:textSize="18sp"
+    app:textAllCaps="false"
+    app:strokeColor="@color/black_500"
+    app:strokeWidth="1dp"
+    app:fontFamily="@font/poppins_bold"
+
+    android:layout_height="70dp" android:id="@+id/button4"
+    app:layout_constraintStart_toStartOf="@+id/button3" app:layout_constraintEnd_toEndOf="@+id/button3"
+    app:layout_constraintHorizontal_bias="0.0"
+    app:layout_constraintTop_toBottomOf="@+id/button3"/>
+  <TextView
+    android:text="10"
+    android:textColor="@color/red_500"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content" android:id="@+id/textView6"
+    app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintEnd_toEndOf="parent" android:layout_marginTop="36dp"
+    app:fontFamily="@font/poppins_bold"
+    android:textAppearance="@style/TextAppearance.AppCompat.Display1"/>
 </androidx.constraintlayout.widget.ConstraintLayout>
