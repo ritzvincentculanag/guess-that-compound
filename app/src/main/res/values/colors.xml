@@ -11,6 +11,7 @@
   <!-- User defined colors -->
   <color name="black_500">#111</color>
   <color name="black_300">#333</color>
+  <color name="yellow_700">#FFB700</color>
   <color name="yellow_500">#fc3</color>
   <color name="yellow_300">#FFD969</color>
   <color name="red_500">#F42A42</color>
