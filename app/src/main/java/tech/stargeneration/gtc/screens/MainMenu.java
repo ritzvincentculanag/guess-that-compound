@@ -16,8 +16,8 @@ public class MainMenu extends AppCompatActivity {
         final Button startBtn = findViewById(R.id.btnStart);
         final Button learnBtn = findViewById(R.id.btnLearn);
 
-        final Intent chooseCompounds = new Intent(this, ChooseCompunds.class);
-        final Intent learnSection = new Intent(this, ChooseCompunds.class);
+        final Intent chooseCompounds = new Intent(this, ChooseCompounds.class);
+        final Intent learnSection = new Intent(this, ChooseCompounds.class);
 
         startBtn.setOnClickListener(action -> {
             startActivity(chooseCompounds);
