@@ -16,21 +16,22 @@
     android:layout_height="wrap_content" android:id="@+id/textView4"
     android:layout_marginEnd="178dp" app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent" android:layout_marginStart="176dp"
-    app:layout_constraintHorizontal_bias="0.498" app:layout_constraintTop_toBottomOf="@+id/textView6"
+    app:layout_constraintHorizontal_bias="0.498" app:layout_constraintTop_toBottomOf="@+id/timer"
     android:layout_marginTop="8dp"/>
   <TextView
     android:text="NaCl"
+    android:gravity="center"
     app:fontFamily="@font/poppins_bold"
     android:textColor="@color/black_500"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content" android:id="@+id/textView5"
-    android:textAppearance="@style/TextAppearance.AppCompat.Display3"
+    android:layout_width="300dp"
+    android:layout_height="100dp" android:id="@+id/compoundFormula"
+    android:textAppearance="@style/TextAppearance.AppCompat.Display1"
     app:layout_constraintTop_toBottomOf="@+id/textView4" app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintEnd_toEndOf="parent" android:layout_marginTop="48dp"/>
   <Button
     android:text="Sodium Chloride"
     android:layout_width="0dp"
-    android:layout_height="70dp" android:id="@+id/button"
+    android:layout_height="70dp" android:id="@+id/choice1"
 
     app:backgroundTint="@color/yellow_500"
     android:textColor="@color/black_500"
@@ -41,7 +42,7 @@
     app:fontFamily="@font/poppins_bold"
 
     app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintTop_toBottomOf="@+id/textView5" android:layout_marginTop="56dp"
+    app:layout_constraintTop_toBottomOf="@+id/compoundFormula" android:layout_marginTop="68dp"
     app:layout_constraintHorizontal_bias="0.0" android:layout_marginStart="32dp" android:layout_marginEnd="32dp"/>
   <Button
     android:text="Sodium Chloride"
@@ -55,10 +56,10 @@
     app:strokeWidth="1dp"
     app:fontFamily="@font/poppins_bold"
 
-    android:layout_height="70dp" android:id="@+id/button2"
-    app:layout_constraintStart_toStartOf="@+id/button" app:layout_constraintEnd_toEndOf="@+id/button"
+    android:layout_height="70dp" android:id="@+id/choice2"
+    app:layout_constraintStart_toStartOf="@+id/choice1" app:layout_constraintEnd_toEndOf="@+id/choice1"
     app:layout_constraintHorizontal_bias="0.0"
-    app:layout_constraintTop_toBottomOf="@+id/button"/>
+    app:layout_constraintTop_toBottomOf="@+id/choice1"/>
   <Button
     android:text="Sodium Chloride"
     android:layout_width="0dp"
@@ -71,10 +72,10 @@
     app:strokeWidth="1dp"
     app:fontFamily="@font/poppins_bold"
 
-    android:layout_height="70dp" android:id="@+id/button3"
-    app:layout_constraintStart_toStartOf="@+id/button2" app:layout_constraintEnd_toEndOf="@+id/button2"
+    android:layout_height="70dp" android:id="@+id/choice3"
+    app:layout_constraintStart_toStartOf="@+id/choice2" app:layout_constraintEnd_toEndOf="@+id/choice2"
     app:layout_constraintHorizontal_bias="0.0"
-    app:layout_constraintTop_toBottomOf="@+id/button2"/>
+    app:layout_constraintTop_toBottomOf="@+id/choice2"/>
   <Button
     android:text="Sodium Chloride"
     android:layout_width="0dp"
@@ -87,15 +88,15 @@
     app:strokeWidth="1dp"
     app:fontFamily="@font/poppins_bold"
 
-    android:layout_height="70dp" android:id="@+id/button4"
-    app:layout_constraintStart_toStartOf="@+id/button3" app:layout_constraintEnd_toEndOf="@+id/button3"
+    android:layout_height="70dp" android:id="@+id/choice4"
+    app:layout_constraintStart_toStartOf="@+id/choice3" app:layout_constraintEnd_toEndOf="@+id/choice3"
     app:layout_constraintHorizontal_bias="0.0"
-    app:layout_constraintTop_toBottomOf="@+id/button3"/>
+    app:layout_constraintTop_toBottomOf="@+id/choice3"/>
   <TextView
     android:text="10"
     android:textColor="@color/red_500"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content" android:id="@+id/textView6"
+    android:layout_height="wrap_content" android:id="@+id/timer"
     app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintEnd_toEndOf="parent" android:layout_marginTop="36dp"
     app:fontFamily="@font/poppins_bold"
