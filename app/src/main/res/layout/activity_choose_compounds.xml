@@ -71,7 +71,7 @@
   </RelativeLayout>
 
   <RelativeLayout
-    android:id="@+id/Covalent"
+    android:id="@+id/btnCovalent"
     android:background="@drawable/button_default"
     android:layout_width="match_parent"
     android:layout_height="200dp"
