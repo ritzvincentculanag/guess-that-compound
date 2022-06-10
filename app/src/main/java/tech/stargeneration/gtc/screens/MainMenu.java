@@ -13,11 +13,11 @@ public class MainMenu extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
 
-        Button startBtn = findViewById(R.id.btnStart);
-        Button learnBtn = findViewById(R.id.btnLearn);
+        final Button startBtn = findViewById(R.id.btnStart);
+        final Button learnBtn = findViewById(R.id.btnLearn);
 
-        Intent chooseCompounds = new Intent(this, ChooseCompunds.class);
-        Intent learnSection = new Intent(this, ChooseCompunds.class);
+        final Intent chooseCompounds = new Intent(this, ChooseCompunds.class);
+        final Intent learnSection = new Intent(this, ChooseCompunds.class);
 
         startBtn.setOnClickListener(action -> {
             startActivity(chooseCompounds);
