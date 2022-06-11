@@ -2,12 +2,14 @@ package tech.stargeneration.gtc.screens;
 
 import android.app.AlertDialog;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import tech.stargeneration.gtc.R;
 import tech.stargeneration.gtc.data.QuizIonic;
 import tech.stargeneration.gtc.models.Compound;
@@ -26,6 +28,7 @@ public class TakeQuiz extends AppCompatActivity {
     // For timer
     private final long START_TIME_IN_MILLIS = 16000;
     private TextView timer;
+    private Color timerColor;
     private CountDownTimer countDownTimer;
     private boolean timerIsRunning;
     private long timeLeftInMillis = START_TIME_IN_MILLIS;
@@ -113,8 +116,20 @@ public class TakeQuiz extends AppCompatActivity {
 
     private void updateTimerText() {
         int timeLeft = (int) (timeLeftInMillis / 1000) % 60;
-
         String timeLeftFormatted = String.valueOf(timeLeft);
+
+        if (timeLeft == 0) {
+            pauseTimer();
+            showAlertDialog("Result", "Time's up!");
+        } else if (timeLeft <= 10) {
+            if (timeLeft % 2 == 0) {
+                timer.setTextColor(ContextCompat.getColor(TakeQuiz.this, R.color.red_500));
+            } else {
+                timer.setTextColor(ContextCompat.getColor(TakeQuiz.this, R.color.black_500));
+            }
+        } else {
+            timer.setTextColor(ContextCompat.getColor(TakeQuiz.this, R.color.black_500));
+        }
 
         timer.setText(timeLeftFormatted);
     }
