@@ -32,6 +32,7 @@
     android:text="Sodium Chloride"
     android:layout_width="0dp"
     android:layout_height="70dp" android:id="@+id/choice1"
+    android:letterSpacing="0"
 
     app:backgroundTint="@color/yellow_500"
     android:textColor="@color/black_500"
@@ -47,6 +48,7 @@
   <Button
     android:text="Sodium Chloride"
     android:layout_width="0dp"
+    android:letterSpacing="0"
 
     app:backgroundTint="@color/yellow_500"
     android:textColor="@color/black_500"
@@ -63,6 +65,7 @@
   <Button
     android:text="Sodium Chloride"
     android:layout_width="0dp"
+    android:letterSpacing="0"
 
     app:backgroundTint="@color/yellow_500"
     android:textColor="@color/black_500"
@@ -79,6 +82,7 @@
   <Button
     android:text="Sodium Chloride"
     android:layout_width="0dp"
+    android:letterSpacing="0"
 
     app:backgroundTint="@color/yellow_500"
     android:textColor="@color/black_500"
@@ -94,7 +98,7 @@
     app:layout_constraintTop_toBottomOf="@+id/choice3"/>
   <TextView
     android:text="10"
-    android:textColor="@color/red_500"
+    android:textColor="@color/black_500"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content" android:id="@+id/timer"
     app:layout_constraintTop_toTopOf="parent" app:layout_constraintStart_toStartOf="parent"
