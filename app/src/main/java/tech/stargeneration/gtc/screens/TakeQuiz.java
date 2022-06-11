@@ -100,6 +100,7 @@ public class TakeQuiz extends AppCompatActivity {
 
     private void initButtons() {
         for (Button button : choices) {
+            button.setSoundEffectsEnabled(false);
             button.setOnClickListener(this::checkAnswer);
         }
     }

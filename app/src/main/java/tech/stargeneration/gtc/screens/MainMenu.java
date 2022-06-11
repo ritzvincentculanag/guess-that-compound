@@ -23,6 +23,9 @@ public class MainMenu extends AppCompatActivity {
         final PlaySound playSound = new PlaySound();
         final int btnMenuSound = PlaySound.soundPool.load(this, R.raw.sound_btn_menu, 1);
 
+        // Disable default button sound effect
+        startBtn.setSoundEffectsEnabled(false);
+
         startBtn.setOnClickListener(action -> {
             PlaySound.play(btnMenuSound);
             startActivity(chooseCompounds);
