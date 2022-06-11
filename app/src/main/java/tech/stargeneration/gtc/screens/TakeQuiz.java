@@ -91,6 +91,13 @@ public class TakeQuiz extends AppCompatActivity {
         showNextQuestion();
     }
 
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        pauseTimer();
+        resetTimer();
+    }
+
     private void initButtons() {
         for (Button button : choices) {
             button.setOnClickListener(this::checkAnswer);
