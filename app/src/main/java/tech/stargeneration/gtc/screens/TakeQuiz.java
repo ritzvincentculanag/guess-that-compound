@@ -137,7 +137,7 @@ public class TakeQuiz extends AppCompatActivity {
     private void showAlertDialog(String title, String message) {
         builder.setTitle(title);
         builder.setMessage(message);
-        builder.setPositiveButton("Nice!", (dialogInterface, i) -> {
+        builder.setPositiveButton("Ok!", (dialogInterface, i) -> {
             resetTimer();
             showNextQuestion();
         });
