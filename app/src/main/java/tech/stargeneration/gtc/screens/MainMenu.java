@@ -5,6 +5,7 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import tech.stargeneration.gtc.R;
+import tech.stargeneration.gtc.utils.PlaySound;
 
 public class MainMenu extends AppCompatActivity {
 
@@ -19,7 +20,11 @@ public class MainMenu extends AppCompatActivity {
         final Intent chooseCompounds = new Intent(this, ChooseCompounds.class);
         final Intent learnSection = new Intent(this, ChooseCompounds.class);
 
+        final PlaySound playSound = new PlaySound();
+        final int btnMenuSound = PlaySound.soundPool.load(this, R.raw.sound_btn_menu, 1);
+
         startBtn.setOnClickListener(action -> {
+            PlaySound.play(btnMenuSound);
             startActivity(chooseCompounds);
         });
     }

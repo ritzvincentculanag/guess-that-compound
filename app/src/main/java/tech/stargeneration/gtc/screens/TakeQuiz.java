@@ -19,6 +19,7 @@ import tech.stargeneration.gtc.data.QuizIonic;
 import tech.stargeneration.gtc.models.Compound;
 import tech.stargeneration.gtc.data.CompoundIonic;
 import tech.stargeneration.gtc.models.Quiz;
+import tech.stargeneration.gtc.utils.PlaySound;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -32,14 +33,13 @@ public class TakeQuiz extends AppCompatActivity {
     // For timer
     private final long START_TIME_IN_MILLIS = 16000;
     private TextView timer;
-    private Color timerColor;
     private CountDownTimer countDownTimer;
     private boolean timerIsRunning;
     private long timeLeftInMillis = START_TIME_IN_MILLIS;
 
     // For sound
-    private SoundPool soundPool;
     private int warningSound;
+    private int btnQuizSound;
 
     // For quiz
     private Random random;
@@ -105,23 +105,8 @@ public class TakeQuiz extends AppCompatActivity {
     }
 
     private void initSounds() {
-        // Initialize soundpool
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            AudioAttributes audioAttributes = new AudioAttributes.Builder()
-                    .setUsage(AudioAttributes.USAGE_ASSISTANCE_SONIFICATION)
-                    .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
-                    .build();
-
-            soundPool = new SoundPool.Builder()
-                    .setMaxStreams(1)
-                    .setAudioAttributes(audioAttributes)
-                    .build();
-        } else {
-            soundPool = new SoundPool(1, AudioManager.STREAM_MUSIC, 0);
-        }
-
-        // Get sounds
-        warningSound = soundPool.load(this, R.raw.sound_warning, 1);
+        warningSound = PlaySound.soundPool.load(this, R.raw.sound_warning, 1);
+        btnQuizSound = PlaySound.soundPool.load(this, R.raw.sound_btn_quiz, 1);
     }
 
     private void showNextQuestion() {
@@ -139,6 +124,7 @@ public class TakeQuiz extends AppCompatActivity {
     }
 
     private void checkAnswer(View view) {
+        PlaySound.play(btnQuizSound);
         if (timerIsRunning) {
             pauseTimer();
 
@@ -198,7 +184,7 @@ public class TakeQuiz extends AppCompatActivity {
         } else if (timeLeft <= 10) {
             if (timeLeft % 2 == 0) {
                 timer.setTextColor(ContextCompat.getColor(TakeQuiz.this, R.color.red_500));
-                soundPool.play(warningSound, 1, 1, 0, 0, 1);
+                PlaySound.play(warningSound);
             } else {
                 timer.setTextColor(ContextCompat.getColor(TakeQuiz.this, R.color.black_500));
             }
