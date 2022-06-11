@@ -87,6 +87,43 @@ public class TakeQuiz extends AppCompatActivity {
         }
     }
 
+    private void showNextQuestion() {
+        int randomQuiz = random.nextInt(quiz.size());
+        quizToShow = quiz.get(randomQuiz);
+        formulasToShow = quizToShow.getCompoundChoices();
+
+        compoundFormula.setText(quizToShow.getCompoundToGuess().getName());
+        for (int i = 0; i < formulasToShow.size(); i++) {
+            choices[i].setText(formulasToShow.get(i));
+        }
+
+        quiz.remove(quizToShow);
+        startTimer();
+    }
+
+    private void checkAnswer(View view) {
+        if (timerIsRunning) {
+            pauseTimer();
+
+            if (quiz.size() == 0) {
+                Intent showScore = new Intent(this, ShowScore.class);
+                showScore.putExtra("QUIZ_SCORE", score);
+                startActivity(showScore);
+            } else {
+                Button buttonPressed = findViewById(view.getId());
+                String buttonPressedText = buttonPressed.getText().toString();
+                String correctAnswer = quizToShow.getCompoundToGuess().getFormula();
+
+                if (buttonPressedText.equals(correctAnswer)) {
+                    score += 1;
+                    showAlertDialog("Result", "Correct!");
+                } else {
+                    showAlertDialog("Result", "Better luck next time!");
+                }
+            }
+        }
+    }
+
     private void startTimer() {
         countDownTimer = new CountDownTimer(timeLeftInMillis, 1000) {
             @Override
@@ -143,42 +180,5 @@ public class TakeQuiz extends AppCompatActivity {
         });
         builder.setCancelable(false);
         builder.show();
-    }
-
-    private void showNextQuestion() {
-        int randomQuiz = random.nextInt(quiz.size());
-        quizToShow = quiz.get(randomQuiz);
-        formulasToShow = quizToShow.getCompoundChoices();
-
-        compoundFormula.setText(quizToShow.getCompoundToGuess().getName());
-        for (int i = 0; i < formulasToShow.size(); i++) {
-            choices[i].setText(formulasToShow.get(i));
-        }
-
-        quiz.remove(quizToShow);
-        startTimer();
-    }
-
-    private void checkAnswer(View view) {
-        if (timerIsRunning) {
-            pauseTimer();
-
-            if (quiz.size() == 0) {
-                Intent showScore = new Intent(this, ShowScore.class);
-                showScore.putExtra("QUIZ_SCORE", score);
-                startActivity(showScore);
-            } else {
-                Button buttonPressed = findViewById(view.getId());
-                String buttonPressedText = buttonPressed.getText().toString();
-                String correctAnswer = quizToShow.getCompoundToGuess().getFormula();
-
-                if (buttonPressedText.equals(correctAnswer)) {
-                    score += 1;
-                    showAlertDialog("Result", "Correct!");
-                } else {
-                    showAlertDialog("Result", "Better luck next time!");
-                }
-            }
-        }
     }
 }
