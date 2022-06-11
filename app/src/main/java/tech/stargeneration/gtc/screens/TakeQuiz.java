@@ -3,6 +3,7 @@ package tech.stargeneration.gtc.screens;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -21,6 +22,13 @@ public class TakeQuiz extends AppCompatActivity {
     // Additional information
     private Bundle extras;
     private int result;
+
+    // For timer
+    private final long START_TIME_IN_MILLIS = 16000;
+    private TextView timer;
+    private CountDownTimer countDownTimer;
+    private boolean timerIsRunning;
+    private long timeLeftInMillis = START_TIME_IN_MILLIS;
 
     // For quiz
     private Random random;
@@ -46,6 +54,8 @@ public class TakeQuiz extends AppCompatActivity {
 
         extras = getIntent().getExtras();
         result = extras.getInt("QUIZ_TYPE");
+
+        timer = findViewById(R.id.timer);
 
         random = new Random();
         quizIonic = new QuizIonic();
@@ -74,10 +84,48 @@ public class TakeQuiz extends AppCompatActivity {
         }
     }
 
+    private void startTimer() {
+        countDownTimer = new CountDownTimer(timeLeftInMillis, 1000) {
+            @Override
+            public void onTick(long l) {
+                timeLeftInMillis = l;
+                updateTimerText();
+            }
+
+            @Override
+            public void onFinish() {
+                timerIsRunning = false;
+            }
+        }.start();
+
+        timerIsRunning = true;
+    }
+
+    private void pauseTimer() {
+        countDownTimer.cancel();
+        timerIsRunning = false;
+    }
+
+    private void resetTimer() {
+        timeLeftInMillis = START_TIME_IN_MILLIS;
+        updateTimerText();
+    }
+
+    private void updateTimerText() {
+        int timeLeft = (int) (timeLeftInMillis / 1000) % 60;
+
+        String timeLeftFormatted = String.valueOf(timeLeft);
+
+        timer.setText(timeLeftFormatted);
+    }
+
     private void showAlertDialog(String title, String message) {
         builder.setTitle(title);
         builder.setMessage(message);
-        builder.setPositiveButton("Nice!", (dialogInterface, i) -> showNextQuestion());
+        builder.setPositiveButton("Nice!", (dialogInterface, i) -> {
+            resetTimer();
+            showNextQuestion();
+        });
         builder.setCancelable(false);
         builder.show();
     }
@@ -93,25 +141,29 @@ public class TakeQuiz extends AppCompatActivity {
         }
 
         quiz.remove(quizToShow);
+        startTimer();
     }
 
     private void checkAnswer(View view) {
-        if (quiz.size() == 0) {
-            Intent showScore = new Intent(this, ShowScore.class);
-            showScore.putExtra("QUIZ_SCORE", score);
-            startActivity(showScore);
-        } else {
-            Button buttonPressed = findViewById(view.getId());
-            String buttonPressedText = buttonPressed.getText().toString();
-            String correctAnswer = quizToShow.getCompoundToGuess().getFormula();
+        if (timerIsRunning) {
+            pauseTimer();
 
-            if (buttonPressedText.equals(correctAnswer)) {
-                score += 1;
-                showAlertDialog("Result", "Correct!");
+            if (quiz.size() == 0) {
+                Intent showScore = new Intent(this, ShowScore.class);
+                showScore.putExtra("QUIZ_SCORE", score);
+                startActivity(showScore);
             } else {
-                showAlertDialog("Result", "Better luck next time!");
+                Button buttonPressed = findViewById(view.getId());
+                String buttonPressedText = buttonPressed.getText().toString();
+                String correctAnswer = quizToShow.getCompoundToGuess().getFormula();
+
+                if (buttonPressedText.equals(correctAnswer)) {
+                    score += 1;
+                    showAlertDialog("Result", "Correct!");
+                } else {
+                    showAlertDialog("Result", "Better luck next time!");
+                }
             }
         }
-
     }
 }
